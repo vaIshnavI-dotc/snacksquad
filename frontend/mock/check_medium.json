@@ -1,0 +1,25 @@
+{
+  "operation_id": "op_mock_medium",
+  "verdict": "fake",
+  "score": 0.62,
+  "risk": "medium",
+  "duration_seconds": 9.8,
+  "segments": [
+    {"start": 0, "end": 3, "score": 0.55, "verdict": "real"},
+    {"start": 3, "end": 6.2, "score": 0.7, "verdict": "fake"},
+    {"start": 6.2, "end": 9.8, "score": 0.62, "verdict": "fake"}
+  ],
+  "advice": [
+    "Verify the caller using a number you already have saved.",
+    "Do not share OTPs, PINs, passwords or money based on this call."
+  ],
+  "disclaimer": "This signal is evidence to consider, not proof. Verify through another channel.",
+  "limitations": ["Short clips and background noise can affect the result."],
+  "credits_left": 4975,
+  "claimed_contact": {"id": "contact_rahul"},
+  "action": {
+    "type": "verify_first",
+    "callback_number_masked": "+91 ••••• 1428",
+    "safe_word_hint": "A place you visited together"
+  }
+}

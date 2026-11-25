@@ -1,0 +1,24 @@
+{
+  "operation_id": "op_mock_low",
+  "verdict": "real",
+  "score": 0.14,
+  "risk": "low",
+  "duration_seconds": 8.2,
+  "segments": [
+    {"start": 0, "end": 2.5, "score": 0.12, "verdict": "real"},
+    {"start": 2.5, "end": 5.4, "score": 0.18, "verdict": "real"},
+    {"start": 5.4, "end": 8.2, "score": 0.11, "verdict": "real"}
+  ],
+  "advice": [
+    "No strong AI voice signs were found, but automated checks can be wrong.",
+    "Use a saved number or another trusted channel if you are unsure."
+  ],
+  "disclaimer": "A low signal does not prove a voice is genuine. Confirm through another channel.",
+  "limitations": [],
+  "credits_left": 4974,
+  "claimed_contact": {"id": "contact_rahul"},
+  "action": {
+    "type": "proceed_with_caution",
+    "note": "Stay alert for urgent requests involving money or personal codes."
+  }
+}

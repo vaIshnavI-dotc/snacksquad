@@ -1,0 +1,18 @@
+[
+  {
+    "id": "contact_rahul",
+    "name": "Rahul",
+    "relationship": "Brother",
+    "phone_masked": "+91 ••••• 1428",
+    "callback_number_masked": "+91 ••••• 1428",
+    "safe_word_hint": "A place you visited together"
+  },
+  {
+    "id": "contact_meera",
+    "name": "Meera",
+    "relationship": "Mother",
+    "phone_masked": "+91 ••••• 8063",
+    "callback_number_masked": "+91 ••••• 8063",
+    "safe_word_hint": "Your childhood pet"
+  }
+]

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f8f6">
+  <title>Scam Shield — Check before you trust</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Scam Shield home" data-i18n-aria="homeLabel"><span class="brand-mark" aria-hidden="true">S</span> Scam Shield</a>
+    <div class="header-tools">
+      <label class="sr-only" for="language">Language</label>
+      <select id="language" aria-label="Language" data-i18n-aria="languageLabel">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow" data-i18n="eyebrow"></p>
+      <h1 data-i18n="title"></h1>
+      <p data-i18n="subtitle"></p>
+    </section>
+
+    <div class="simulation-banner" role="note">
+      <span class="info-icon" aria-hidden="true">i</span>
+      <span data-i18n="simulationNotice"></span>
+    </div>
+
+    <nav class="step-nav" aria-label="Progress" data-i18n-aria="progressLabel">
+      <ol id="step-list"></ol>
+    </nav>
+
+    <div id="status-message" class="status-message" role="status" aria-live="polite" hidden></div>
+
+    <section id="step-incoming" class="panel step-panel">
+      <div class="section-heading">
+        <span class="step-kicker" data-i18n="stepOne"></span>
+        <h2 data-i18n="incomingTitle"></h2>
+        <p data-i18n="incomingIntro"></p>
+      </div>
+      <div class="call-card">
+        <div class="avatar" id="contact-avatar" aria-hidden="true">R</div>
+        <div><p class="call-label" id="incoming-label" data-i18n="incomingCall"></p><strong id="claimed-name"></strong></div>
+        <span class="call-pulse" aria-hidden="true"></span>
+      </div>
+      <div class="field">
+        <label for="contact-select" data-i18n="claimsLabel"></label>
+        <select id="contact-select"></select>
+      </div>
+      <div class="field">
+        <label for="audio-file" data-i18n="uploadLabel"></label>
+        <input id="audio-file" type="file" accept="audio/*">
+        <p class="field-hint" data-i18n="uploadHint"></p>
+      </div>
+      <div class="record-box" id="record-box">
+        <div>
+          <strong data-i18n="recordTitle"></strong>
+          <p data-i18n="recordHint"></p>
+        </div>
+        <div class="record-controls">
+          <button type="button" class="button button-secondary" id="record-start" data-i18n="startRecording"></button>
+          <button type="button" class="button button-secondary" id="record-stop" data-i18n="stopRecording" disabled></button>
+          <span id="record-timer" aria-live="polite">00:00</span>
+        </div>
+        <p id="recording-unavailable" class="field-hint" hidden data-i18n="recorderUnavailable"></p>
+      </div>
+      <p class="consent"><span aria-hidden="true">✓</span> <span data-i18n="consent"></span></p>
+      <div class="sample-controls" id="sample-controls" hidden>
+        <label for="sample-select" data-i18n="sampleLabel"></label>
+        <select id="sample-select">
+          <option value="high" data-i18n="sampleHigh"></option>
+          <option value="medium" data-i18n="sampleMedium"></option>
+          <option value="low" data-i18n="sampleLow"></option>
+        </select>
+      </div>
+      <button type="button" class="button button-primary full-button" id="check-button" data-i18n="checkVoice"></button>
+    </section>
+
+    <section id="step-checking" class="panel step-panel" hidden aria-live="polite">
+      <div class="section-heading">
+        <span class="step-kicker" data-i18n="stepTwo"></span>
+        <h2 data-i18n="checkingHeading"></h2>
+        <p data-i18n="checkingNote"></p>
+      </div>
+      <div class="loading-mark" aria-hidden="true"></div>
+    </section>
+
+    <section id="step-result" class="panel step-panel" hidden>
+      <div class="section-heading">
+        <span class="step-kicker" data-i18n="stepThree"></span>
+        <h2 data-i18n="resultHeading"></h2>
+      </div>
+      <div id="result-content" aria-live="polite"></div>
+      <div class="step-actions">
+        <button type="button" class="button button-secondary" data-back="incoming" data-i18n="back"></button>
+        <button type="button" class="button button-primary" id="result-next" data-i18n="continue"></button>
+      </div>
+    </section>
+
+    <section id="step-alert" class="panel step-panel" hidden>
+      <div class="section-heading">
+        <span class="step-kicker" data-i18n="stepFour"></span>
+        <h2 data-i18n="alertHeading"></h2>
+        <p data-i18n="alertIntro"></p>
+      </div>
+      <div id="alert-content"></div>
+      <div class="step-actions">
+        <button type="button" class="button button-secondary" data-back="result" data-i18n="back"></button>
+        <button type="button" class="button button-primary" id="alert-next" data-i18n="continue"></button>
+      </div>
+    </section>
+
+    <section id="step-summary" class="panel step-panel" hidden>
+      <div class="section-heading">
+        <span class="step-kicker" data-i18n="stepFive"></span>
+        <h2 data-i18n="summaryHeading"></h2>
+        <p data-i18n="summaryIntro"></p>
+      </div>
+      <div class="field">
+        <label for="caller-name" data-i18n="callerLabel"></label>
+        <input id="caller-name" type="text" maxlength="120">
+      </div>
+      <div class="field">
+        <label for="incident-note" data-i18n="noteLabel"></label>
+        <textarea id="incident-note" rows="4" maxlength="1000"></textarea>
+      </div>
+      <div class="summary-actions">
+        <button type="button" class="button button-primary" id="print-summary" data-i18n="printSummary"></button>
+        <button type="button" class="button button-secondary" id="copy-summary" data-i18n="copySummary"></button>
+      </div>
+      <div class="next-steps">
+        <strong data-i18n="nextSteps"></strong>
+        <p data-i18n="nextStepsDetail"></p>
+        <p class="official-note" data-i18n="notFir"></p>
+      </div>
+      <div class="step-actions">
+        <button type="button" class="button button-secondary" data-back="alert" data-i18n="back"></button>
+        <button type="button" class="button button-primary" data-forward="feedback" data-i18n="continue"></button>
+      </div>
+    </section>
+
+    <section id="step-feedback" class="panel step-panel" hidden>
+      <div class="section-heading">
+        <span class="step-kicker" data-i18n="stepSix"></span>
+        <h2 data-i18n="feedbackHeading"></h2>
+      </div>
+      <fieldset class="feedback-fieldset">
+        <legend data-i18n="feedbackQuestion"></legend>
+        <div class="feedback-options">
+          <label><input type="radio" name="feedback-correct" value="true"> <span data-i18n="yes"></span></label>
+          <label><input type="radio" name="feedback-correct" value="false"> <span data-i18n="no"></span></label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="feedback-label" data-i18n="actualLabel"></label>
+        <select id="feedback-label">
+          <option value="" data-i18n="optionalChoose"></option>
+          <option value="real" data-i18n="real"></option>
+          <option value="fake" data-i18n="aiGenerated"></option>
+        </select>
+      </div>
+      <button type="button" class="button button-primary" id="send-feedback" data-i18n="submitFeedback"></button>
+      <div class="step-actions">
+        <button type="button" class="button button-secondary" data-back="summary" data-i18n="back"></button>
+        <button type="button" class="button button-secondary" data-forward="incoming" data-i18n="startOver"></button>
+      </div>
+    </section>
+
+    <footer>
+      <div class="credits-row"><span data-i18n="creditsLabel"></span><strong id="credits-value" data-i18n="loading"></strong><button id="refresh-credits" class="text-button" type="button" data-i18n="refresh"></button></div>
+      <p data-i18n="footerDisclaimer"></p>
+    </footer>
+  </main>
+  <span id="dev-mode-indicator" class="dev-mode-indicator" hidden></span>
+</body>
+</html>
