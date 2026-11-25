@@ -1,0 +1,20 @@
+[
+  {
+    "id": "sample-mom",
+    "name": "Asha Sharma",
+    "relationship": "Mother",
+    "phone_masked": "+91 ••••• 12345",
+    "telegram_chat_id": null,
+    "safe_word_hint": "Ask about the blue umbrella",
+    "callback_number_masked": "+91 ••••• 12345"
+  },
+  {
+    "id": "sample-friend",
+    "name": "Ravi Mehta",
+    "relationship": "Friend",
+    "phone_masked": "+91 ••••• 67890",
+    "telegram_chat_id": null,
+    "safe_word_hint": "Ask about the old college nickname",
+    "callback_number_masked": "+91 ••••• 67890"
+  }
+]

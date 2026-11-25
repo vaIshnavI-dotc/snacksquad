@@ -4,3 +4,9 @@ __pycache__/
 venv/
 .venv/
 node_modules/
+
+.env.*
+!.env.example
+backend/data/alerts.json
+backend/data/checks.json
+.pytest_cache/

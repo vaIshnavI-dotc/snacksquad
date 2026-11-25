@@ -4,8 +4,21 @@ Decide primarily with `verdict`; the docs say not to rely on the score alone."""
 from . import config
 
 DISCLAIMER = {
-    "en": "A score is evidence, not proof. Confirm through another channel.",
-    "hi": "स्कोर सबूत का संकेत है, पक्का प्रमाण नहीं। किसी और तरीके से पुष्टि करें।",
+    "en": "The result is evidence, not proof. Confirm through another channel.",
+    "hi": "यह परिणाम साक्ष्य है, प्रमाण नहीं। किसी अन्य तरीके से पुष्टि करें।",
+}
+
+LIMITATIONS = {
+    "en": [
+        "Results are evidence, not proof.",
+        "Short clips (under 10 seconds) and phone-quality audio are less reliable.",
+        "The service works best with English and Hindi audio.",
+    ],
+    "hi": [
+        "परिणाम साक्ष्य हैं, प्रमाण नहीं।",
+        "छोटी क्लिप (10 सेकंड से कम) और फोन-क्वालिटी ऑडियो के परिणाम कम विश्वसनीय हो सकते हैं।",
+        "यह सेवा अंग्रेज़ी और हिंदी ऑडियो पर सबसे अच्छा काम करती है।",
+    ],
 }
 
 ADVICE = {
@@ -65,5 +78,6 @@ def build_response(api_json: dict, lang: str = "en") -> dict:
         "segments": res.get("segments", []),
         "advice": ADVICE[level][lang],
         "disclaimer": DISCLAIMER[lang],
+        "limitations": LIMITATIONS[lang],
         "credits_left": api_json.get("credits", {}).get("balance"),
     }
