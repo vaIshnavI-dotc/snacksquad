@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+eval/samples/**/*.wav
+eval/samples/**/*.mp3
+eval/samples/**/*.m4a
+eval/samples/**/*.ogg
